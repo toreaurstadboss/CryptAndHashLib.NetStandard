@@ -2,12 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+	  <PackageId>CryptAndHashLib.NetStandard</PackageId>
+	  <Version>1.0.0</Version>
+	  <PackageTags>Crypt;Hash;NetStandard;Simple;Aes;Demo;</PackageTags>
+	  <Authors>Tore Aurstad IT</Authors>
+	  <WebPage>https://github.com/toreaurstadboss/CryptAndHashLib.NetStandard</WebPage>
+	  <RepositoryUrl>https://github.com/toreaurstadboss/CryptAndHashLib.NetStandard</RepositoryUrl>
+	  <Description>This is a simple package for cryption/encryption and hashing that supports Net Standard 2.0 for use in .Net Framework and .Net Core. For use in production, libraries supporting key vaults such as Azure Key Vault is suggested instead.</Description>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="System.Configuration.ConfigurationManager">
-      <HintPath>..\..\..\Users\toaurs-he\.nuget\packages\system.configuration.configurationmanager\4.4.0\ref\netstandard2.0\System.Configuration.ConfigurationManager.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />		
+    </ItemGroup>
 
 </Project>
