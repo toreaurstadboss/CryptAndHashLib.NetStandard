@@ -41,7 +41,15 @@ namespace CryptAndHashLib.NetStandard.Test
             decryptedText.Should().Be(input, "Expected to encrypt and decrypt with generated IV using Aes algorithm as a reversible process and two-way function.");
         }
 
-
+        [Test]
+        [TestCase(@"Mars Perseverance Rover 2020 has landed in Jezero crater!")]
+        public void CryptAndDecryptWithSpecifiedIvDoesNotFail(string input)
+        {
+            string iv = "HwJ5Iq5pdhEmZHOdy70VEA==";
+            string encryptedText = Encryptor.Encrypt(input, iv);
+            string decryptedText = Encryptor.Decrypt(encryptedText);
+            decryptedText.Should().Be(input, "Expected to encrypt and decrypt with generated IV using Aes algorithm as a reversible process and two-way function.");
+        }
 
     }
 }

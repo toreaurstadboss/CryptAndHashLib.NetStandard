@@ -12,7 +12,7 @@ namespace CryptAndHashLib.NetStandard
             {
                 var encryptor = aes.CreateEncryptor(GetEncryptionKeyFromConfig(), iv ?? aes.IV);
                 var encryptedBytes = encryptor.Encrypt(plainText);
-                return String.Concat(Convert.ToBase64String(aes.IV), " ", Convert.ToBase64String(encryptedBytes));
+                return String.Concat(Convert.ToBase64String(iv ?? aes.IV), " ", Convert.ToBase64String(encryptedBytes));
             }
         }
 
@@ -68,7 +68,15 @@ namespace CryptAndHashLib.NetStandard
 
         public byte[] GetEncryptionKeyFromConfig()
         {
-            return Convert.FromBase64String(ConfigurationManager.AppSettings[Constants.EncryptionKey]);
+            try
+            {
+                return Convert.FromBase64String(ConfigurationManager.AppSettings[Constants.EncryptionKey]);
+            }
+            catch (ArgumentNullException err)
+            {
+                Console.WriteLine($"Error, encryption key not specified in configuration file. Make sure you have added application setting EncryptionKey to active configuration file first: {err}");
+                throw;
+            }
         }
 
         public byte[] GetIVFromConfig()
