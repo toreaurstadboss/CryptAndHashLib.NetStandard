@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	  <PackageId>CryptAndHashLib.NetStandard</PackageId>
-	  <Version>1.0.0</Version>
+	  <Version>1.1.0</Version>
 	  <PackageTags>Crypt;Hash;NetStandard;Simple;Aes;Demo;</PackageTags>
 	  <Authors>Tore Aurstad IT</Authors>
 	  <WebPage>https://github.com/toreaurstadboss/CryptAndHashLib.NetStandard</WebPage>
@@ -13,6 +13,7 @@
   </PropertyGroup>
 
 	<ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="5.0.3" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />		
     </ItemGroup>
 
